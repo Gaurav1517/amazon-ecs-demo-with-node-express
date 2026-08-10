@@ -1,0 +1,21 @@
+# ==========================================
+# STAGE 1: Build Environment
+# ==========================================
+FROM node:20-alpine AS builder
+WORKDIR /usr/src/calc
+COPY package*.json ./
+
+RUN npm install --omit=dev
+COPY . .
+
+# ==========================================
+# STAGE 2: Production Environment
+# ==========================================
+FROM gcr.io/distroless/nodejs20-debian12
+ENV NODE_ENV production
+WORKDIR /usr/src/calc
+
+COPY --from=builder /usr/src/calc /usr/src/calc
+USER nonroot
+EXPOSE 3000
+CMD [ "calculator.js" ]
