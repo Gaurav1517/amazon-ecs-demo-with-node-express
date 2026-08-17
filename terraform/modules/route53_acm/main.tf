@@ -7,8 +7,8 @@ terraform {
   }
 }
 
-# 1. Create the Route 53 Public Hosted Zone
-resource "aws_route53_zone" "public" {
+# 1. Fetch the existing Route 53 Public Hosted Zone
+data "aws_route53_zone" "public" {
   name = var.domain_name
 }
 
@@ -38,7 +38,7 @@ resource "aws_route53_record" "cert_validation" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = aws_route53_zone.public.zone_id
+  zone_id         = data.aws_route53_zone.public.zone_id
 }
 
 # 4. Wait for ACM Validation to complete
@@ -49,7 +49,7 @@ resource "aws_acm_certificate_validation" "cert" {
 
 # 5. Create the Root A Record (Alias) pointing to CloudFront
 resource "aws_route53_record" "root_a" {
-  zone_id = aws_route53_zone.public.zone_id
+  zone_id = data.aws_route53_zone.public.zone_id
   name    = var.domain_name
   type    = "A"
 

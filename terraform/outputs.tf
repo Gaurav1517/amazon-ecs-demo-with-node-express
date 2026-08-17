@@ -63,7 +63,3 @@ output "ecs_task_definition_arn" {
   value       = module.ecs.task_definition_arn
 }
 
-output "route53_nameservers" {
-  description = "The nameservers for your Route 53 Hosted Zone. Update Hostinger with these!"
-  value       = module.route53_acm.nameservers
-}
