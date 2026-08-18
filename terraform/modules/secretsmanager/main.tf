@@ -6,7 +6,7 @@ resource "aws_secretsmanager_secret" "database_url" {
 
 resource "aws_secretsmanager_secret_version" "database_url_val" {
   secret_id     = aws_secretsmanager_secret.database_url.id
-  secret_string = "postgres://produser:prodpass@mydb.example.com:5432/proddb"
+  secret_string = var.database_url
 }
 
 resource "aws_secretsmanager_secret" "api_key" {
@@ -17,5 +17,5 @@ resource "aws_secretsmanager_secret" "api_key" {
 
 resource "aws_secretsmanager_secret_version" "api_key_val" {
   secret_id     = aws_secretsmanager_secret.api_key.id
-  secret_string = "prod-api-key-12345"
+  secret_string = var.api_key
 }

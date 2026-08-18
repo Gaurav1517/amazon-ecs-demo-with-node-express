@@ -56,11 +56,15 @@ module "route53_acm" {
 }
 
 module "ssm" {
-  source = "./modules/ssm"
+  source   = "./modules/ssm"
+  app_port = var.app_port
+  node_env = var.node_env
 }
 
 module "secretsmanager" {
-  source = "./modules/secretsmanager"
+  source       = "./modules/secretsmanager"
+  database_url = var.database_url
+  api_key      = var.api_key
 }
 
 module "cloudfront" {

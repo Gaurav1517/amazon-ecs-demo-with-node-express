@@ -65,3 +65,4 @@ terraform.rc
 *.pem
 *.key
 .env
+*.tfvars

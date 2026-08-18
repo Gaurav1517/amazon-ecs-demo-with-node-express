@@ -1,0 +1,47 @@
+# Copy this file to terraform.tfvars and fill in your actual values.
+# IMPORTANT: Never commit terraform.tfvars to version control!
+
+# AWS Configuration
+aws_region  = "ap-south-1"
+aws_profile = "default"
+
+# VPC Configuration
+vpc_cidr = "10.0.0.0/16"
+vpc_name = "my-production-vpc"
+igw_name = "my-igw"
+public_rt_name = "my-public-rt"
+private_rt_name = "my-private-rt"
+nat_gw_name = "my-nat-gw"
+
+public_subnets = [
+  { cidr = "10.0.1.0/24", name = "public-subnet-1", az = "ap-south-1a" },
+  { cidr = "10.0.2.0/24", name = "public-subnet-2", az = "ap-south-1b" }
+]
+
+private_subnets = [
+  { cidr = "10.0.3.0/24", name = "private-subnet-1", az = "ap-south-1a" },
+  { cidr = "10.0.4.0/24", name = "private-subnet-2", az = "ap-south-1b" }
+]
+
+# ECR Configuration
+ecr_repo_name = "my-app-repo"
+
+# Custom Domain Configuration
+domain_name = "example.com"
+
+# GitHub Actions OIDC Configuration
+github_repo = "username/repository-name"
+
+# --- Secrets and Environment Variables ---
+
+# Production Database URL
+database_url = "postgres://username:password@mydb.example.com:5432/proddb"
+
+# Production API Key
+api_key = "my-secret-api-key"
+
+# Application Port
+app_port = "3000"
+
+# Node Environment
+node_env = "production"

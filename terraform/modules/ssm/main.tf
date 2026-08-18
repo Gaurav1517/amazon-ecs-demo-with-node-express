@@ -1,7 +1,7 @@
 resource "aws_ssm_parameter" "app_port" {
   name  = "/ecs-calc-app/production/APP_PORT"
   type  = "SecureString"
-  value = "3000"
+  value = var.app_port
 
   tags = {
     Name        = "AppPort"
@@ -12,7 +12,7 @@ resource "aws_ssm_parameter" "app_port" {
 resource "aws_ssm_parameter" "node_env" {
   name  = "/ecs-calc-app/production/NODE_ENV"
   type  = "SecureString"
-  value = "production"
+  value = var.node_env
 
   tags = {
     Name        = "NodeEnv"

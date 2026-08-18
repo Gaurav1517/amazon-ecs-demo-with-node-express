@@ -72,3 +72,27 @@ variable "github_repo" {
   description = "The GitHub repository to allow for OIDC (e.g., Gaurav1517/amazon-ecs-demo-with-node-express)"
   type        = string
 }
+
+variable "database_url" {
+  description = "The production database URL"
+  type        = string
+  sensitive   = true
+}
+
+variable "api_key" {
+  description = "The production API key"
+  type        = string
+  sensitive   = true
+}
+
+variable "app_port" {
+  description = "The port the application listens on"
+  type        = string
+  default     = "3000"
+}
+
+variable "node_env" {
+  description = "The Node environment"
+  type        = string
+  default     = "production"
+}
