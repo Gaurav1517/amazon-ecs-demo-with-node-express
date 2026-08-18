@@ -9,6 +9,7 @@
   "author": "buraku",
   "license": "MIT-0",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^4.17.1"
   }
 }

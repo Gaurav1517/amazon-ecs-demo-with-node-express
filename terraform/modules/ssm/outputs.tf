@@ -1,9 +1,9 @@
-output "database_url_arn" {
-  value       = aws_ssm_parameter.database_url.arn
-  description = "ARN of the DATABASE_URL SSM Parameter"
+output "app_port_arn" {
+  value       = aws_ssm_parameter.app_port.arn
+  description = "ARN of the APP_PORT SSM Parameter"
 }
 
-output "api_key_arn" {
-  value       = aws_ssm_parameter.api_key.arn
-  description = "ARN of the API_KEY SSM Parameter"
+output "node_env_arn" {
+  value       = aws_ssm_parameter.node_env.arn
+  description = "ARN of the NODE_ENV SSM Parameter"
 }

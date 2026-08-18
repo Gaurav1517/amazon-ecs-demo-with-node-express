@@ -58,6 +58,14 @@ resource "aws_ecs_task_definition" "this" {
 
       secrets = [
         {
+          name      = "APP_PORT"
+          valueFrom = var.app_port_arn
+        },
+        {
+          name      = "NODE_ENV"
+          valueFrom = var.node_env_arn
+        },
+        {
           name      = "DATABASE_URL"
           valueFrom = var.database_url_arn
         },

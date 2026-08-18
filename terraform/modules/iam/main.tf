@@ -34,7 +34,8 @@ resource "aws_iam_role_policy" "ecs_execution_ssm_policy" {
         Effect = "Allow"
         Action = [
           "ssm:GetParameters",
-          "kms:Decrypt"
+          "kms:Decrypt",
+          "secretsmanager:GetSecretValue"
         ]
         Resource = "*"
       }

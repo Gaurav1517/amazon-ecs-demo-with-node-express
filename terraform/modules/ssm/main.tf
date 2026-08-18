@@ -1,21 +1,21 @@
-resource "aws_ssm_parameter" "database_url" {
-  name  = "/ecs-calc-app/production/DATABASE_URL"
+resource "aws_ssm_parameter" "app_port" {
+  name  = "/ecs-calc-app/production/APP_PORT"
   type  = "SecureString"
-  value = "postgres://dummyuser:dummypassword@mydb.example.com:5432/proddb"
+  value = "3000"
 
   tags = {
-    Name        = "DatabaseURL"
+    Name        = "AppPort"
     Environment = "production"
   }
 }
 
-resource "aws_ssm_parameter" "api_key" {
-  name  = "/ecs-calc-app/production/API_KEY"
+resource "aws_ssm_parameter" "node_env" {
+  name  = "/ecs-calc-app/production/NODE_ENV"
   type  = "SecureString"
-  value = "dummy-api-key-12345"
+  value = "production"
 
   tags = {
-    Name        = "APIKey"
+    Name        = "NodeEnv"
     Environment = "production"
   }
 }

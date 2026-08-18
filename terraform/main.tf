@@ -59,6 +59,10 @@ module "ssm" {
   source = "./modules/ssm"
 }
 
+module "secretsmanager" {
+  source = "./modules/secretsmanager"
+}
+
 module "cloudfront" {
   source              = "./modules/cloudfront"
   alb_dns_name        = module.alb.alb_dns_name
@@ -79,8 +83,10 @@ module "ecs" {
   private_subnet_ids = module.vpc.private_subnet_ids
   tasks_sg_id        = module.sg.tasks_sg_id
   
-  database_url_arn   = module.ssm.database_url_arn
-  api_key_arn        = module.ssm.api_key_arn
+  app_port_arn       = module.ssm.app_port_arn
+  node_env_arn       = module.ssm.node_env_arn
+  database_url_arn   = module.secretsmanager.database_url_arn
+  api_key_arn        = module.secretsmanager.api_key_arn
 }
 
 module "cloudwatch" {

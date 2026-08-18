@@ -33,12 +33,22 @@ variable "tasks_sg_id" {
   type        = string
 }
 
+variable "app_port_arn" {
+  description = "ARN of the APP_PORT SSM Parameter"
+  type        = string
+}
+
+variable "node_env_arn" {
+  description = "ARN of the NODE_ENV SSM Parameter"
+  type        = string
+}
+
 variable "database_url_arn" {
-  description = "ARN of the DATABASE_URL SSM Parameter"
+  description = "ARN of the DATABASE_URL Secret"
   type        = string
 }
 
 variable "api_key_arn" {
-  description = "ARN of the API_KEY SSM Parameter"
+  description = "ARN of the API_KEY Secret"
   type        = string
 }

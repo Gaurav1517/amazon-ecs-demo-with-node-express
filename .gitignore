@@ -64,3 +64,4 @@ terraform.rc
 # Sensitive/local files
 *.pem
 *.key
+.env

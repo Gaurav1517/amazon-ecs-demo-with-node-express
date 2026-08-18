@@ -1,5 +1,6 @@
 // jshint esversion: 6
 
+require("dotenv").config();
 const express = require("express");
 var bodyParser = require("body-parser");
 const app = express();
@@ -54,8 +55,12 @@ app.post("/", function (req, res) {
   `);
 });
 
-app.listen(3000, function () {
-  console.log("server started on port 3000");
+const port = process.env.APP_PORT || 3000;
+app.listen(port, function () {
+  console.log(`server started on port ${port}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
+  console.log(`Database Configured: ${!!process.env.DATABASE_URL}`);
+  console.log(`API Key Configured: ${!!process.env.API_KEY}`);
 });
 
 function add(num1, num2) {
