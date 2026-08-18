@@ -62,4 +62,7 @@ output "ecs_task_definition_arn" {
   description = "The ARN of the ECS task definition"
   value       = module.ecs.task_definition_arn
 }
-
+output "github_actions_role_arn" {
+  description = "The ARN of the IAM role for GitHub Actions to assume"
+  value       = module.oidc.github_actions_role_arn
+}

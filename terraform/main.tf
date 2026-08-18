@@ -83,3 +83,11 @@ module "cloudwatch" {
   ecs_cluster_name        = module.ecs.cluster_name
   ecs_service_name        = module.ecs.service_name
 }
+
+module "oidc" {
+  source             = "./modules/oidc"
+  github_repo        = "Gaurav1517/amazon-ecs-demo-with-node-express"
+  ecr_repository_arn = module.ecr.repository_arn
+  execution_role_arn = module.iam.execution_role_arn
+  task_role_arn      = module.iam.task_role_arn
+}

@@ -97,9 +97,9 @@ resource "aws_ecs_service" "this" {
     container_port   = 3000
   }
 
-  # Ignore changes to desired_count as it will be managed by Auto Scaling
+  # Ignore changes to desired_count and task_definition as they will be managed by Auto Scaling / CI/CD
   lifecycle {
-    ignore_changes = [desired_count]
+    ignore_changes = [desired_count, task_definition]
   }
 
   tags = {
