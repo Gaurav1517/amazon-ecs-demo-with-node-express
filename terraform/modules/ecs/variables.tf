@@ -32,3 +32,13 @@ variable "tasks_sg_id" {
   description = "The ID of the security group for the ECS tasks"
   type        = string
 }
+
+variable "database_url_arn" {
+  description = "ARN of the DATABASE_URL SSM Parameter"
+  type        = string
+}
+
+variable "api_key_arn" {
+  description = "ARN of the API_KEY SSM Parameter"
+  type        = string
+}

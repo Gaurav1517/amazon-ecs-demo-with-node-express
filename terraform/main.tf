@@ -55,6 +55,10 @@ module "route53_acm" {
   }
 }
 
+module "ssm" {
+  source = "./modules/ssm"
+}
+
 module "cloudfront" {
   source              = "./modules/cloudfront"
   alb_dns_name        = module.alb.alb_dns_name
@@ -74,6 +78,9 @@ module "ecs" {
   target_group_arn   = module.alb.target_group_arn
   private_subnet_ids = module.vpc.private_subnet_ids
   tasks_sg_id        = module.sg.tasks_sg_id
+  
+  database_url_arn   = module.ssm.database_url_arn
+  api_key_arn        = module.ssm.api_key_arn
 }
 
 module "cloudwatch" {

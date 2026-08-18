@@ -56,6 +56,17 @@ resource "aws_ecs_task_definition" "this" {
         }
       ]
 
+      secrets = [
+        {
+          name      = "DATABASE_URL"
+          valueFrom = var.database_url_arn
+        },
+        {
+          name      = "API_KEY"
+          valueFrom = var.api_key_arn
+        }
+      ]
+
       logConfiguration = {
         logDriver = "awslogs"
         options = {
