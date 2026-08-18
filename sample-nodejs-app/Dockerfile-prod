@@ -18,4 +18,4 @@ WORKDIR /usr/src/calc
 COPY --from=builder /usr/src/calc /usr/src/calc
 USER nonroot
 EXPOSE 3000
-CMD [ "node", "app.js" ]
+CMD [ "app.js" ]
