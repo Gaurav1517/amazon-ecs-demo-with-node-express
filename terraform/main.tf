@@ -86,7 +86,7 @@ module "cloudwatch" {
 
 module "oidc" {
   source             = "./modules/oidc"
-  github_repo        = "Gaurav1517/amazon-ecs-demo-with-node-express"
+  github_repo        = var.github_repo
   ecr_repository_arn = module.ecr.repository_arn
   execution_role_arn = module.iam.execution_role_arn
   task_role_arn      = module.iam.task_role_arn

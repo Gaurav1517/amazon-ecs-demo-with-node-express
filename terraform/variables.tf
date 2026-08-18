@@ -67,3 +67,8 @@ variable "domain_name" {
   description = "The custom domain name for the application"
   type        = string
 }
+
+variable "github_repo" {
+  description = "The GitHub repository to allow for OIDC (e.g., Gaurav1517/amazon-ecs-demo-with-node-express)"
+  type        = string
+}
